@@ -318,3 +318,148 @@ h1 {
         padding: 60px 0 30px;
     }
 }
+
+.scroll-anim {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+    animation-timeline: view();
+    animation-range: entry 0% entry 100%;
+}
+
+.scroll-anim.range-1 { animation-range: entry 20% entry 100%; }
+.scroll-anim.range-2 { animation-range: entry 40% entry 100%; }
+
+.fade-in-up    { animation-name: fadeInUp; }
+.fade-in-left  { animation-name: fadeInLeft; }
+.fade-in-right { animation-name: fadeInRight; }
+.zoom-in       { animation-name: zoomIn; }
+.fade-in       { animation-name: fadeIn; }
+
+@supports not (animation-timeline: view()) {
+    .scroll-anim { animation: none; opacity: 1; }
+}
+
+
+/* ---------- свечение и блик ---------- */
+.btn {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -120%;
+    width: 60%; height: 100%;
+    background: linear-gradient(120deg,
+                transparent, rgba(255,255,255,0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left .6s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+.btn:hover::before { left: 130%; }
+.btn:hover {
+    background-color: #1782CF;
+    box-shadow: 0 0 0 3px rgba(23,130,207,.25),
+                0 10px 22px rgba(23,130,207,.45);
+    transform: translateY(-2px);
+}
+.btn:active { transform: translateY(0) scale(.98); }
+.btn:focus-visible { outline: 3px solid #1782CF; outline-offset: 3px; }
+
+/* ---------- заливка слева-направо ---------- */
+.btn-outline {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    z-index: 0;
+}
+.btn-outline::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #1782CF;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform .4s ease;
+    z-index: -1;
+}
+.btn-outline:hover {
+    color: #fff;
+    border-color: #1782CF;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(23,130,207,.4);
+}
+.btn-outline:hover::before { transform: scaleX(1); }
+.btn-outline:active { transform: translateY(0) scale(.98); }
+.btn-outline:focus-visible { outline: 3px solid #1782CF; outline-offset: 3px; }
+
+/* ---------- круговое свечение, подъём и поворот иконки ---------- */
+.contact-btn {
+    position: relative;
+    overflow: hidden;
+}
+.contact-btn::before {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+                rgba(23,130,207,.35), transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: width .55s ease, height .55s ease;
+    pointer-events: none;
+}
+.contact-btn:hover::before {
+    width: 420px; height: 420px;
+}
+.contact-btn:hover {
+    transform: translateY(-4px);
+    border-color: #1782CF;
+    box-shadow: 0 12px 26px rgba(23,130,207,.35);
+}
+.contact-btn i { transition: transform .35s ease; }
+.contact-btn:hover i { transform: scale(1.15) rotate(-6deg); }
+
+/* ---------- подчёркивание ---------- */
+.navigation a { position: relative; }
+.navigation a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0px;
+    width: 100%; height: 2px;
+    background: rgb(113,255,186);
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform .35s ease;
+}
+.navigation a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+}
+
+/* ---------- зум и тень ---------- */
+.portfolio-item img {
+    transition: transform .5s ease, box-shadow .5s ease;
+}
+.portfolio-item:hover img {
+    transform: translateY(-8px) scale(1.015);
+    box-shadow: 0 20px 45px rgba(0,0,0,.2);
+}
+
+/* ---------- ДОСТУПНОСТЬ ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-anim,
+    .btn::before,
+    .btn-outline::before,
+    .contact-btn::before,
+    .navigation a::after {
+        animation: none !important;
+        transition: none !important;
+        opacity: 1;
+    }
+    .portfolio-item:hover img { transform: none; }
+}
