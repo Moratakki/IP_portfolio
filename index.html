@@ -1,18 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+          integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 <body>
     <header class="header">
         <nav>
-            <div class="logo"><i class="fa-solid fa-hippo fa-xl fa-fade"></i></div>
-            <div class="navigation">
+            <div class="logo animate__animated animate__bounceIn">
+                <i class="fa-solid fa-hippo fa-xl fa-fade"></i>
+            </div>
+            <div class="navigation animate__animated animate__fadeInDown">
                 <a href="#">Главная</a>
                 <a href="#Portfolio">Портфолио</a>
                 <a href="#Contact">Контакты</a>
@@ -20,35 +28,43 @@
         </nav>
         <div class="container">
             <div class="header-row">
-                <img src="img/photo.jpg" srcset="img/photo@2x.jpg" alt="" class="header-img">
+                <img src="img/photo.jpg" srcset="img/photo@2x.jpg" alt=""
+                     class="header-img animate__animated animate__fadeInLeft">
                 <div class="header-desc">
-                    <h1>Данил<br>Быков</h1>
-                    <p class="header-text">фрилансер, веб-разработчик,<br> создание сайтов</p>
-                    <div class="header-btns">
-                        <button href="#Portfolio" class="btn">Портфолио</button>
-                        <button href="#Contact" class="btn-outline">Контакты</button>
+                    <h1 class="animate__animated animate__fadeInRight animate__delay-1s">
+                        Данил<br>Быков
+                    </h1>
+                    <p class="header-text animate__animated animate__fadeInRight animate__delay-2s">
+                        фрилансер, веб-разработчик,<br> создание сайтов
+                    </p>
+                    <div class="header-btns animate__animated animate__fadeInUp animate__delay-3s">
+                        <button class="btn">Портфолио</button>
+                        <button class="btn-outline">Контакты</button>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- ПОРТФОЛИО -->
     <main>
+        <!-- ПОРТФОЛИО -->
         <section id="Portfolio" class="portfolio">
             <div class="container">
-                <h2 class="section-title">Портфолио</h2>
+                <h2 class="section-title scroll-anim fade-in-up">Портфолио</h2>
                 <div class="portfolio-list">
-                    <div class="portfolio-item">
-                        <img src="img/project-01.jpg" srcset="img/project-01@2x.jpg" alt="Сайт магазина мебели">
+                    <div class="portfolio-item scroll-anim fade-in-up">
+                        <img src="img/project-01.jpg" srcset="img/project-01@2x.jpg"
+                             alt="Сайт магазина мебели">
                         <p>Сайт магазина мебели</p>
                     </div>
-                    <div class="portfolio-item">
-                        <img src="img/project-02.jpg" srcset="img/project-02@2x.jpg" alt="Сайт туристического агентства">
+                    <div class="portfolio-item scroll-anim fade-in-up range-1">
+                        <img src="img/project-02.jpg" srcset="img/project-02@2x.jpg"
+                             alt="Сайт туристического агентства">
                         <p>Сайт туристического агентства</p>
                     </div>
-                    <div class="portfolio-item">
-                        <img src="img/project-03.jpg" srcset="img/project-03@2x.jpg" alt="Сайт жилого комплекса">
+                    <div class="portfolio-item scroll-anim fade-in-up range-2">
+                        <img src="img/project-03.jpg" srcset="img/project-03@2x.jpg"
+                             alt="Сайт жилого комплекса">
                         <p>Сайт жилого комплекса</p>
                     </div>
                 </div>
@@ -58,22 +74,22 @@
         <!-- КОНТАКТЫ -->
         <section id="Contact" class="contacts">
             <div class="container">
-                <h2 class="section-title">Контакты</h2>
+                <h2 class="section-title scroll-anim fade-in-up">Контакты</h2>
                 <div class="contacts-btns">
-                    <a href="#" class="contact-btn">
+                    <a href="#" class="contact-btn scroll-anim zoom-in">
                         <i class="fa-brands fa-telegram icon-telegram"></i>
                         Написать в Telegram
                     </a>
-                    <a href="#" class="contact-btn">
+                    <a href="#" class="contact-btn scroll-anim zoom-in range-1">
                         <i class="fa-solid fa-comment-dots icon-max"></i>
                         Отправить в Max
                     </a>
-                    <a href="#" class="contact-btn">
+                    <a href="#" class="contact-btn scroll-anim zoom-in range-2">
                         <i class="fa-brands fa-vk icon-vk"></i>
                         Связаться Вконтакте
                     </a>
                 </div>
-                <div class="footer-info">
+                <div class="footer-info scroll-anim fade-in range-2">
                     <p>© ДАНИЛ БЫКОВ</p>
                     <p>HTML верстка, создание сайтов</p>
                     <p>ДОНЕЦК</p>
